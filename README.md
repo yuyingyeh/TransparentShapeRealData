@@ -5,7 +5,10 @@ The real transparent shape data creation pipeline for [Through the Looking Glass
 We have our pre-processed read shape used in our paper. The download link is [here]().
 
 ## Process Your Own Captured Data
-Requirement: OpenCV (tested on v3.4.2), pillow (tested on v7.2.0), scikit-image (tested on v0.16.2), trimesh (tested on v3.7.14)
+Requirements: 
+- Python packages: OpenCV (tested on v3.4.2), pillow (tested on v7.2.0), scikit-image (tested on v0.16.2), trimesh (tested on v3.7.14)
+- Enable `xvfb-run`. 
+- [Meshlab](https://www.meshlab.net)
 
 ### Step 0: Capture Data and Get Segmentation Maps
 First, you need to prepare a mirror ball and the transparent shape(s) you want to reconstruct. Select a scene and fix the mirror ball and the transparent shape(s) alternately at the center. Use your camera to capture
@@ -39,7 +42,7 @@ python computeEnvMap.py --scene $SceneRoot
 ```
 
 ### Step 4: Build Visual Hull
-First put the original shape images in `$SceneRoot/$ShapeName` and mask images in `$SceneRoot/$ShapeName_Mask_$ViewNum`.
+First put the original shape images in `$SceneRoot/$ShapeName` and mask images in `$SceneRoot/$ShapeName_Mask_$ViewNum`. The script will run visual hull algorithm and then do subdivision with meshlab to create a visual hull initialized mesh.
 ```
-python computeVisualHull.py
+python computeVisualHull.py --scene $SceneRoot --shapeName $ShapeName --nViews $ViewNum
 ```
