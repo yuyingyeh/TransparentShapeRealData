@@ -46,3 +46,4 @@ First put the original shape images in `$SceneRoot/$ShapeName` and mask images i
 ```
 python computeVisualHull.py --scene $SceneRoot --shapeName $ShapeName --nViews $ViewNum
 ```
+The script will output visual hull mesh `$ShapeName_visualHull_$ViewNum.ply` and its subdivised mesh `$ShapeName_visualHullSubd_$ViewNum.ply`. The camera poses for these views and the resized binary masks and RGB images are stored in `cam_$ShapeName_$ViewNum.txt`, `$ShapeName_Mask_$ViewNum_binary`, and `$ShapeName_RGB_$ViewNum` for evaluation of the proposed method.
