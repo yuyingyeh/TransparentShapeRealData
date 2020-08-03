@@ -31,19 +31,19 @@ From all the captured images (mirror ball and transparent shape) under a single 
 ### Step 2: Detect Mirror Ball Location
 From the mirror images in `$SceneRoot/MirrorBall_Imgs`, the script will use HoughCircles algorithm to detect the mirror ball locations and output circle locations in `$SceneRoot/ballLoc.txt`. Use the optional tag `--isPrecise` to manually check detection results.
 ```
-python ballDetect.py --scene $SceneRoot (--isPrecise)
+python 1_ballDetect.py --scene $SceneRoot (--isPrecise)
 ```
 
 ### Step 3: Compute Environment Map
 The script will output estimated environment map in `$SceneRoot/env.png`. If you find the estimation too noisy, you may need to go back to Step 2 to choose accurate circles or change the paramters using `--param 1` or manually tune the parameters in this script. Use the optional tag `--showStepByStep` to save intermediate results for debugging.
 
 ```
-python computeEnvMap.py --scene $SceneRoot
+python 2_computeEnvMap.py --scene $SceneRoot
 ```
 
 ### Step 4: Build Visual Hull
 First put the original shape images in `$SceneRoot/$ShapeName` and mask images in `$SceneRoot/$ShapeName_Mask_$ViewNum`. The script will run visual hull algorithm and then do subdivision with meshlab to create a visual hull initialized mesh.
 ```
-python computeVisualHull.py --scene $SceneRoot --shapeName $ShapeName --nViews $ViewNum
+python 3_computeVisualHull.py --scene $SceneRoot --shapeName $ShapeName --nViews $ViewNum
 ```
 The script will output visual hull mesh `$ShapeName_visualHull_$ViewNum.ply` and its subdivised mesh `$ShapeName_visualHullSubd_$ViewNum.ply`. The camera poses for these views and the resized binary masks and RGB images are stored in `cam_$ShapeName_$ViewNum.txt`, `$ShapeName_Mask_$ViewNum_binary`, and `$ShapeName_RGB_$ViewNum` for evaluation of the proposed method.
