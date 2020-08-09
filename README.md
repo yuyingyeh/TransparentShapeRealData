@@ -48,3 +48,9 @@ First put the original shape images in `$SceneRoot/$ShapeName` and mask images i
 python 3_computeVisualHull.py --scene $SceneRoot --shapeName $ShapeName --nViews $ViewNum
 ```
 The script will output visual hull mesh `$ShapeName_visualHull_$ViewNum.ply` and its subdivised mesh `$ShapeName_visualHullSubd_$ViewNum.ply`. The camera poses for these views and the resized binary masks and RGB images are stored in `cam_$ShapeName_$ViewNum.txt`, `$ShapeName_Mask_$ViewNum_binary`, and `$ShapeName_RGB_$ViewNum` for evaluation of the proposed method.
+
+### Step 5: Render Two Bounce Normals
+Render input multi-view visual hull two bounce normals. First, build the [OptiX Renderer](https://github.com/lzqsd/OptixRenderer) and put the subdivised mesh in `./Shapes/`. The script will render two bounce normals and save them in `./ImagesReal/`
+```
+python renderTwoBounce.py
+```
