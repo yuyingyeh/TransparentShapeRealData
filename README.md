@@ -1,5 +1,6 @@
 # TransparentShapeRealData
 The real transparent shape data creation pipeline for [Through the Looking Glass: Neural 3D Reconstruction of Transparent Shapes](http://cseweb.ucsd.edu/~viscomp/projects/CVPR20Transparent/), CVPR'20
+![](http://cseweb.ucsd.edu/~viscomp/projects/CVPR20Transparent/github/TransShape.gif)
 
 ## Pre-processed Real Data
 We have pre-processed real transparent shape data used in our paper. The download link is [here]().
