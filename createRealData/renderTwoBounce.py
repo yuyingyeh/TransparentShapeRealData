@@ -49,7 +49,7 @@ for n, root in enumerate(shapes):
         #shapeName = shapeRoot.split('__')[-1]
 
         shapeId = shapeRoot.split('/')[-1]
-        outputDir = osp.join('../../..', outputRoot, mode, shapeId )
+        outputDir = osp.join(outputRoot, mode, shapeId )
 
         if not osp.isdir(outputDir ):
             os.system('mkdir -p %s' % outputDir )
@@ -59,6 +59,7 @@ for n, root in enumerate(shapes):
             print(len(results ) )
             if len(results) == camNum:
                 continue
+        outputDir = osp.join('../../..', outputDir)
 
         output = osp.join(outputDir, 'imVH_%d.rgbe' % camNum )
 
