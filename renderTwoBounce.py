@@ -12,7 +12,7 @@ import h5py
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--mode', default='real')
-parser.add_argument('--renderProgram', default='/home/zhl/OptixRenderer/src/bin/optixRenderer', help='path to the rendering program')
+parser.add_argument('--renderProgram', default='/home/zhl/CVPR20/TransparentShape/Code/Data/OptixRenderer/src/bin/optixRenderer', help='path to the rendering program')
 parser.add_argument('--fileRoot', default='./Shapes/', help='path to the file root')
 parser.add_argument('--outputRoot', default='./Images', help='path to the output root')
 parser.add_argument('--forceOutput', action='store_true', help='Overwrite previous results')
