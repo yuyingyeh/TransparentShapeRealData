@@ -6,11 +6,14 @@ import os
 from scipy import ndimage
 from scipy import stats
 import argparse
+import xml.etree.ElementTree as et
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--scene', default='Scene')
 parser.add_argument('--showStepByStep', action='store_true', help='use this flag to output intermediate results for debugging')
 parser.add_argument('--param', type=int, default=0, help='select pre-tuned parameters')
+parser.add_argument('--asDataset', action='store_true', help='use this tag to change output path to real data folder')
+parser.add_argument('--shapeId', type=int, default=0, help='activate when asDataset is true, indicate shape id for the shape')         
 opt = parser.parse_args()
 
 expDir = opt.scene
@@ -20,6 +23,25 @@ camFile = os.path.join(expDir, 'sparse/0/cameras.txt')
 imgFolder = os.path.join(expDir, 'MirrorBall_imgs')
 ballLocFile = os.path.join(expDir, 'ballLoc.txt')
 envSavePath = os.path.join(expDir, 'env.png')
+if opt.asDataset:
+    outFolder = 'Shapes/real/Shape__%d' % opt.shapeId
+    if not os.path.exists(outFolder):
+        os.system('mkdir -p %s' % outFolder)
+    xmlFile = 'Shapes/real/Shape__0/imVH_10.xml'
+    # Create rendering file for Depth maps
+    tree = et.parse(xmlFile )
+    root = tree.getroot()
+
+    shapes = root.findall('emitter')
+    assert(len(shapes ) == 1 )
+    for shape in shapes:
+        strings = shape.findall('string')
+        assert(len(strings) == 1 )
+        for st in strings:
+            #envFileName = st.get('value')
+            st.set('value', envSavePath)
+    tree.write(os.path.join(outFolder, 'im.xml'))
+    
 
 showStepByStep = opt.showStepByStep
 checkFolder = os.path.join(expDir, 'checkEnv')
