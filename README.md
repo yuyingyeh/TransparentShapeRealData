@@ -87,7 +87,7 @@ Render input multi-view visual hull two bounce normals. First, build the [OptiX 
 │       └───Shape__0
 │               cam$ViewNum.txt # From Step 4.
 │               visualHullSubd_$ViewNum.ply # From Step 4.
-│               imVH_$ViewNum.xml # 
+│               imVH_$ViewNum.xml # From this repository
 └───ImagesReal
 │   └───real
 │       └───Shape__0
@@ -99,7 +99,7 @@ Render input multi-view visual hull two bounce normals. First, build the [OptiX 
             env_$envName.png # From Step 3.
 ```
 
-The script will render two bounce normals and save them in `./ImagesReal/real/Shape_$sid`
+The script will render two bounce normals and points `imVH_twoBounce_$ViewNum.h5` and save them in `./ImagesReal/real/Shape_$sid`
 ```
 python renderTwoBounce.py --renderProgram=$RendererRoot
 ```
