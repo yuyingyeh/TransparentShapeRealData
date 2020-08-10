@@ -59,9 +59,8 @@ for n, root in enumerate(shapes):
             print(len(results ) )
             if len(results) == camNum:
                 continue
-        outputDir = osp.join('../../..', outputDir)
 
-        output = osp.join(outputDir, 'imVH_%d.rgbe' % camNum )
+        output = osp.join(osp.join('../../..', outputDir), 'imVH_%d.rgbe' % camNum )
 
         xmlFile = osp.join(shapeRoot, 'imVH_%d.xml' % camNum )
         camFile = 'cam%d.txt' % camNum
