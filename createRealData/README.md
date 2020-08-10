@@ -36,9 +36,9 @@ python 2_computeEnvMap.py --scene $SceneRoot
 ```
 
 ## Step 4: Build Visual Hull
-First put the original shape images in `$SceneRoot/$ShapeName` and mask images in `$SceneRoot/$ShapeName_Mask_$ViewNum`. The script will run visual hull algorithm and then do subdivision with meshlab to create a visual hull initialized mesh.
+First put the original shape images in `$SceneRoot/$ShapeName` and mask images in `$SceneRoot/$ShapeName_Mask_$ViewNum`. The script will run visual hull algorithm and then do subdivision with meshlab to create a visual hull initialized mesh. Use `--asDataset` to save RGB images and masks in the dataset folder.
 ```
-python 3_computeVisualHull.py --scene $SceneRoot --shapeName $ShapeName --nViews $ViewNum
+python 3_computeVisualHull.py --scene $SceneRoot --shapeName $ShapeName --nViews $ViewNum (--asDataset)
 ```
 The script will output visual hull mesh `$ShapeName_visualHull_$ViewNum.ply` and its subdivised mesh `$ShapeName_visualHullSubd_$ViewNum.ply`. The camera poses for these views and the resized binary masks and RGB images are stored in `cam_$ShapeName_$ViewNum.txt`, `$ShapeName_Mask_$ViewNum_binary`, and `$ShapeName_RGB_$ViewNum` for evaluation of the proposed method.
 
