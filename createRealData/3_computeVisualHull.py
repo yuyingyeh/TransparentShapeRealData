@@ -13,6 +13,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--scene', default='Scene')
 parser.add_argument('--shapeName', default='Mouse')
 parser.add_argument('--nViews', type=int, default=10)
+parser.add_argument('--asDataset', action='store_true', help='use this tag to change output path to real data folder')
+parser.add_argument('--shapeId', type=int, default=0, help='activate when asDataset is true, indicate shape id for the shape')         
 opt = parser.parse_args()
 
 expDir = opt.scene
@@ -29,9 +31,14 @@ assert nViews == numMask, 'Number of views should equal to number of masks!'
 
 meshName = os.path.join(expDir, '{}_visualHull_{}.ply'.format(animalName, nViews) )
 meshSubdName = os.path.join(expDir, '{}_visualHullSubd_{}.ply'.format(animalName, nViews) )
-outputCamFile = os.path.join(expDir, 'cam_{}_{}.txt'.format(animalName, nViews) )
-outputMaskFolder = os.path.join(expDir, '{}_Mask_{}_binary'.format(animalName, nViews) )
-outputRGBFolder = os.path.join(expDir, '{}_RGB_{}'.format(animalName, nViews) )
+if !opt.asDataset:
+    outputCamFile = os.path.join(expDir, 'cam_{}_{}.txt'.format(animalName, nViews) )
+    outputMaskFolder = os.path.join(expDir, '{}_Mask_{}_binary'.format(animalName, nViews) )
+    outputRGBFolder = os.path.join(expDir, '{}_RGB_{}'.format(animalName, nViews) )
+else:
+    outputCamFile = os.path.join('Shapes', 'real', 'Shape__%d' % opt.shapeId, 'cam%d.txt' % nViews)
+    outputMaskFolder = os.path.join('ImagesReal', 'real', 'Shape__%d' % opt.shapeId)
+    outputRGBFolder = outputMaskFolder
 sourceRGBFolder = os.path.join(expDir, animalName)
 resizeRGBimH = 360
 resizeRGBimW = 480
