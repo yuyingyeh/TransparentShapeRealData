@@ -78,8 +78,8 @@ The script will output visual hull mesh `$ShapeName_visualHull_$ViewNum.ply` and
             im_$ViewNum.png
 ```
 
-### Step 5: Render Two Bounce Normals
-Render input multi-view visual hull two bounce normals. First, build the [OptiX Renderer](https://github.com/lzqsd/OptixRenderer) at `$RendererRoot` and put the subdivised mesh in `./Shapes/real/Shape_$sid`, where `$sid` is shape id.
+### Step 5: Render Two Bounce Normals and Points
+Render input multi-view visual hull two bounce normals and points. First, build the [OptiX Renderer](https://github.com/lzqsd/OptixRenderer) at `$RendererRoot` and put the subdivised mesh in `./Shapes/real/Shape_$sid`, where `$sid` is shape id. Rename camera file and ply file and put them under same folder in the following format. Modify .xml to make sure shape filename entry has the correct ply filename and emitter entry has any valid envmap path (though there is no use in this step).
 ```
 .
 └───Shapes
@@ -88,13 +88,13 @@ Render input multi-view visual hull two bounce normals. First, build the [OptiX 
 │               cam$ViewNum.txt # From Step 4.
 │               visualHullSubd_$ViewNum.ply # From Step 4.
 │               imVH_$ViewNum.xml # From this repository
-└───ImagesReal
+└───ImagesReal # Generated in this step
 │   └───real
 │       └───Shape__0
 │               imVH_twoBounce_1.h5
 │               ...
 │               imVH_twoBounce_$ViewNum.h5
-└───EnvMaps
+└───Envmaps
     └───real
             env_$envName.png # From Step 3.
 ```
