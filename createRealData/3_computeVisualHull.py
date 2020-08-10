@@ -31,7 +31,7 @@ assert nViews == numMask, 'Number of views should equal to number of masks!'
 
 meshName = os.path.join(expDir, '{}_visualHull_{}.ply'.format(animalName, nViews) )
 meshSubdName = os.path.join(expDir, '{}_visualHullSubd_{}.ply'.format(animalName, nViews) )
-if !opt.asDataset:
+if not opt.asDataset:
     outputCamFile = os.path.join(expDir, 'cam_{}_{}.txt'.format(animalName, nViews) )
     outputMaskFolder = os.path.join(expDir, '{}_Mask_{}_binary'.format(animalName, nViews) )
     outputRGBFolder = os.path.join(expDir, '{}_RGB_{}'.format(animalName, nViews) )
