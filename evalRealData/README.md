@@ -8,5 +8,6 @@ unzip models.zip
 ## Evaluate Normal Prediction
 ```
 cd Normal
-python testNormalNeuralVolume.py --cuda --isAddCostVolume
+python testNormalNeuralVolume.py --cuda --isAddCostVolume --shapeEnd $ShapeNum
 ```
+where `$ShapeNum` indicates the number of shapes in real data
