@@ -39,7 +39,7 @@ if opt.asDataset:
         assert(len(strings) == 1 )
         for st in strings:
             #envFileName = st.get('value')
-            st.set('value', os.path.join('../../..', envSavePath) )
+            st.set('value', os.path.join('../../createRealData', envSavePath) )
     tree.write(os.path.join(outFolder, 'im.xml'))
     
 
