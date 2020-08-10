@@ -8,5 +8,5 @@ unzip models.zip
 ## Evaluate Normal Prediction
 ```
 cd Normal
-python testNormalNeuralVolume.py --cuda
+python testNormalNeuralVolume.py --cuda --isAddCostVolume
 ```
