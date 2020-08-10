@@ -29,10 +29,10 @@ python 1_ballDetect.py --scene $SceneRoot (--isPrecise)
 ```
 
 ## Step 3: Compute Environment Map
-The script will output estimated environment map in `$SceneRoot/env.png`. If you find the estimation too noisy, you may need to go back to Step 2 to choose accurate circles or change the paramters using `--param 1` or manually tune the parameters in this script. Use the optional tag `--showStepByStep` to save intermediate results for debugging.
+The script will output estimated environment map in `$SceneRoot/env.png`. If you find the estimation too noisy, you may need to go back to Step 2 to choose accurate circles or change the paramters using `--param 1` or manually tune the parameters in this script. Use the optional tag `--showStepByStep` to save intermediate results for debugging. Use `--asDataset` to save `im.xml` file in the dataset folder and `--shapeId $sid` to specify shape ID.
 
 ```
-python 2_computeEnvMap.py --scene $SceneRoot
+python 2_computeEnvMap.py --scene $SceneRoot (--asDataset --shapeId $sid)
 ```
 
 ## Step 4: Build Visual Hull
