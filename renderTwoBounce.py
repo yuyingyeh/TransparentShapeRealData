@@ -49,7 +49,7 @@ for n, root in enumerate(shapes):
         #shapeName = shapeRoot.split('__')[-1]
 
         shapeId = shapeRoot.split('/')[-1]
-        outputDir = osp.join('../../..', outputRoot, mode, shapeId )
+        outputDir = osp.join(outputRoot, mode, shapeId ).replace(shapeRoot, '')
 
         if not osp.isdir(outputDir ):
             os.system('mkdir -p %s' % outputDir )
