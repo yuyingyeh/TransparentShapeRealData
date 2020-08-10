@@ -15,8 +15,8 @@ We have pre-processed real transparent shape and image data used in our paper. [
 ### Reconstructed and Ground Truth Scanned Meshes for Direct Evaluation
 We provide the reconstructed and the ground truth scanned meshes for direct evaluation. Please use these aligned reconstruced and ground truth mesh pairs to perform baseline comparisons. [[Download]](http://cseweb.ucsd.edu/~viscomp/projects/CVPR20Transparent/dataset/RealMesh.zip) (191MB)
 
-## Evaluation Code on Real Shapes
-Coming Soon.
-
 ## Process Your Own Captured Data
 Please see [createRealData](https://github.com/yuyingyeh/TransparentShapeRealData/tree/master/createRealData) folder.
+
+## Evaluation Code on Real Shapes
+Please see [evalRealData](https://github.com/yuyingyeh/TransparentShapeRealData/tree/master/evalRealData) folder.
