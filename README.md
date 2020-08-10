@@ -54,7 +54,24 @@ python 3_computeVisualHull.py --scene $SceneRoot --shapeName $ShapeName --nViews
 The script will output visual hull mesh `$ShapeName_visualHull_$ViewNum.ply` and its subdivised mesh `$ShapeName_visualHullSubd_$ViewNum.ply`. The camera poses for these views and the resized binary masks and RGB images are stored in `cam_$ShapeName_$ViewNum.txt`, `$ShapeName_Mask_$ViewNum_binary`, and `$ShapeName_RGB_$ViewNum` for evaluation of the proposed method.
 
 ### Step 5: Render Two Bounce Normals
-Render input multi-view visual hull two bounce normals. First, build the [OptiX Renderer](https://github.com/lzqsd/OptixRenderer) at `$RendererRoot` and put the subdivised mesh in `./Shapes/real/Shape_$sid`, where `$sid` is shape id. The script will render two bounce normals and save them in `./ImagesReal/`
+Render input multi-view visual hull two bounce normals. First, build the [OptiX Renderer](https://github.com/lzqsd/OptixRenderer) at `$RendererRoot` and put the subdivised mesh in `./Shapes/real/Shape_$sid`, where `$sid` is shape id.
+```
+.
++-- Shapes
+|   +-- real
+|       +-- Shape__0
+|           +-- cam$ViewNum.txt # From Step 4.
+|           +-- visualHullSubd_$ViewNum.ply # From Step 4.
+|           +-- imVH_$ViewNum.xml # 
++-- ImagesReal
+|   +-- real
+|       +-- Shape__0
+|           +-- imVH_twoBounce_1.h5
+|           +-- ...
+|           +-- imVH_twoBounce_$ViewNum.h5
+```
+
+The script will render two bounce normals and save them in `./ImagesReal/real/Shape_$sid`
 ```
 python renderTwoBounce.py --renderProgram=$RendererRoot
 ```
