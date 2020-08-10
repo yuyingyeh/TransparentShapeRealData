@@ -151,7 +151,7 @@ if writeOutputCamFile == True:
         else:
             assert False, "{} exists!!!".format(outputCamFile)
 
-    with open(outputCamFile, 'a') as cam:
+    with open(outputCamFile, 'w') as cam:
         cam.write('{}\n'.format(numMask))
 
 for i in range(numMask):
