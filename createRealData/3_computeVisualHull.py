@@ -55,7 +55,8 @@ writeOutputCamFile = outputMode
 saveBinaryMask = outputMode
 saveRGB = outputMode
 
-
+if writeOutputCamFile == True and os.path.exists(os.path.dirname(outputCamFile)) == False:
+    os.makedirs(os.path.dirname(outputCamFile))
 if saveBinaryMask == True and os.path.exists(outputMaskFolder) == False:
     os.makedirs(outputMaskFolder)
 if saveRGB == True and os.path.exists(outputRGBFolder) == False:
