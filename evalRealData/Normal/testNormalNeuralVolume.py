@@ -629,7 +629,7 @@ for i, dataBatch in enumerate(brdfLoader):
 testingLog.close()
 
 
-print(timeSum / countSum )
+print('Inference time per shape:', timeSum / countSum )
 
 '''
 # Save the error record
