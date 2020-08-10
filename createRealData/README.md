@@ -2,25 +2,7 @@
 The real transparent shape reconstructed and ground truth scanned meshes, evaluation code, and data creation pipeline for [Through the Looking Glass: Neural 3D Reconstruction of Transparent Shapes](http://cseweb.ucsd.edu/~viscomp/projects/CVPR20Transparent/), CVPR'20
 ![](http://cseweb.ucsd.edu/~viscomp/projects/CVPR20Transparent/github/TransShape.gif)
 
-## Download Real Data
-### Pre-processed Real Data for Evaluation on Our Network
-We have pre-processed real transparent shape and image data used in our paper. [[Download]](http://cseweb.ucsd.edu/~viscomp/projects/CVPR20Transparent/dataset/RealData.zip). (112.3MB)
-* Shapes/real/
-  * The geometry, camera position and scene configuration files used to create the dataset. 
-* ImagesReal/real/
-  * The rendered images, two-bounce normal and the final reconstructed meshes of the 5-12 view reconstruction. 
-* Envmaps/real/
-  * The environment maps we created using the [pipeline](https://github.com/yuyingyeh/TransparentShapeRealData/blob/master/README.md#process-your-own-captured-data) below.
-  
-### Reconstructed and Ground Truth Scanned Meshes for Direct Evaluation
-We provide the reconstructed and the ground truth scanned meshes for direct evaluation. Please use these aligned reconstruced and ground truth mesh pairs to perform baseline comparisons. [[Download]](http://cseweb.ucsd.edu/~viscomp/projects/CVPR20Transparent/dataset/RealMesh.zip) (191MB)
-
-## Evaluation Code on Real Shapes
-Coming Soon.
-
 ## Process Your Own Captured Data
-Please see [createRealData](https://github.com/yuyingyeh/TransparentShapeRealData/tree/master/createRealData) folder.
-
 Requirements: 
 - Python packages: OpenCV (tested on v3.4.2), pillow (tested on v7.2.0), scikit-image (tested on v0.16.2), trimesh (tested on v3.7.14)
 - Enable `xvfb-run`. 
