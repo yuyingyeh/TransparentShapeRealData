@@ -37,7 +37,7 @@ parser.add_argument('--camNum', type=int, default=10, help='the number of views 
 parser.add_argument('--camNumReal', type=int, default=16, help='the number of views to create the real visual hull' )
 parser.add_argument('--sampleNum', type=int, default=1, help='the sample num for the cost volume')
 parser.add_argument('--shapeStart', type=int, default=0, help='the start id of the shape')
-parser.add_argument('--shapeEnd', type=int, default=600, help='the end id of the shape')
+parser.add_argument('--shapeEnd', type=int, default=1, help='the end id of the shape')
 parser.add_argument('--isAddCostVolume', action='store_true', help='whether to use cost volume or not' )
 parser.add_argument('--poolingMode', type=int, default=2, help='0: maxpooling, 1: average pooling 2: learnable pooling' )
 parser.add_argument('--isAddVisualHull', action='store_true', help='whether to build visual hull into training' )
