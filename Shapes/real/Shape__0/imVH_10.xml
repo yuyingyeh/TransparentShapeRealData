@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<scene version="0.5.0">
+    <integrator type="path"/>
+    <shape id="poissonSubd.ply_object" type="ply">
+        <string name="filename" value="visualHullSubd_10.ply"/>
+        <bsdf id="mat" type="dielectric">
+            <rgb name="specularReflectance" value="1.0 1.0 1.0"/>
+            <rgb name="specularTransmittance" value="1.0 1.0 1.0"/>
+            <float name="intIOR" value="1.4723"/>
+            <float name="extIOR" value="1.0003"/>
+        </bsdf>
+    </shape>
+    <emitter type="envmap">
+        <string name="filename" value="/home/zhl/CVPR20/TransparentShape/Data/Envmaps/test/1519L.hdr"/>
+        <float name="scale" value="7.2456"/>
+    </emitter>
+    <sensor type="perspective">
+        <float name="fov" value="63.3490"/>
+        <string name="fovAxis" value="x"/>
+        <film type="hdrfilm">
+            <integer name="width" value="480"/>
+            <integer name="height" value="360"/>
+        </film>
+        <sampler type="adaptive">
+            <integer name="sampleCount" value="512"/>
+        </sampler>
+    </sensor>
+</scene>
