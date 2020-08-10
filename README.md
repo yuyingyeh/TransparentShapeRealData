@@ -69,6 +69,9 @@ Render input multi-view visual hull two bounce normals. First, build the [OptiX 
 |           +-- imVH_twoBounce_1.h5
 |           +-- ...
 |           +-- imVH_twoBounce_$ViewNum.h5
++-- EnvMaps
+|   +-- real
+|       +-- env_$envName.png # From Step 3.
 ```
 
 The script will render two bounce normals and save them in `./ImagesReal/real/Shape_$sid`
