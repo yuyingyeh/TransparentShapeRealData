@@ -20,8 +20,8 @@ import time
 
 parser = argparse.ArgumentParser()
 # The locationi of training set
-parser.add_argument('--dataRoot', default='/home/zhl/CVPR20/TransparentShape/Data/ImagesReal/real/', help='path to images' )
-parser.add_argument('--shapeRoot', default='/home/zhl/CVPR20/TransparentShape/Data/Shapes/real/', help='path to images' )
+parser.add_argument('--dataRoot', default='../../createRealData/ImagesReal/real/', help='path to images' )
+parser.add_argument('--shapeRoot', default='../../createRealData/Shapes/real/', help='path to images' )
 parser.add_argument('--experiment', default=None, help='the path to store samples and models' )
 parser.add_argument('--testRoot', default=None, help='the path to store outputs')
 # The basic training setting
