@@ -3,7 +3,11 @@ The real transparent shape data creation pipeline for [Through the Looking Glass
 ![](http://cseweb.ucsd.edu/~viscomp/projects/CVPR20Transparent/github/TransShape.gif)
 
 ## Pre-processed Real Data
-We have pre-processed real transparent shape data used in our paper. The download link is [here]().
+We have pre-processed real transparent shape and image data used in our paper. 
+* [ShapesReal](http://cseweb.ucsd.edu/~viscomp/projects/CVPR20Transparent/dataset/ShapesReal.zip)
+  * The geometry, camera position and scene configuration files used to create the dataset. 
+* [ImagesReal](http://cseweb.ucsd.edu/~viscomp/projects/CVPR20Transparent/dataset/ImagesReal.zip)
+  * The rendered images, two-bounce normal and the final reconstructed meshes of the 5-12 view reconstruction. 
 
 ## Process Your Own Captured Data
 Requirements: 
@@ -50,7 +54,7 @@ python 3_computeVisualHull.py --scene $SceneRoot --shapeName $ShapeName --nViews
 The script will output visual hull mesh `$ShapeName_visualHull_$ViewNum.ply` and its subdivised mesh `$ShapeName_visualHullSubd_$ViewNum.ply`. The camera poses for these views and the resized binary masks and RGB images are stored in `cam_$ShapeName_$ViewNum.txt`, `$ShapeName_Mask_$ViewNum_binary`, and `$ShapeName_RGB_$ViewNum` for evaluation of the proposed method.
 
 ### Step 5: Render Two Bounce Normals
-Render input multi-view visual hull two bounce normals. First, build the [OptiX Renderer](https://github.com/lzqsd/OptixRenderer) and put the subdivised mesh in `./Shapes/`. The script will render two bounce normals and save them in `./ImagesReal/`
+Render input multi-view visual hull two bounce normals. First, build the [OptiX Renderer](https://github.com/lzqsd/OptixRenderer) at `$RendererRoot` and put the subdivised mesh in `./Shapes/real/Shape_$sid`, where `$sid` is shape id. The script will render two bounce normals and save them in `./ImagesReal/`
 ```
-python renderTwoBounce.py
+python renderTwoBounce.py --renderProgram=$RendererRoot
 ```
