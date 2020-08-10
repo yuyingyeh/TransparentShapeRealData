@@ -11,7 +11,7 @@
         </bsdf>
     </shape>
     <emitter type="envmap">
-        <string name="filename" value="/home/zhl/CVPR20/TransparentShape/Data/Envmaps/test/1519L.hdr"/>
+        <string name="filename" value="../../../Envmaps/real/env_4f.hdr"/>
         <float name="scale" value="7.2456"/>
     </emitter>
     <sensor type="perspective">
