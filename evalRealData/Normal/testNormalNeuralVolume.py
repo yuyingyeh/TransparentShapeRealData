@@ -22,7 +22,7 @@ parser = argparse.ArgumentParser()
 # The locationi of training set
 parser.add_argument('--dataRoot', default='../../createRealData/ImagesReal/real/', help='path to images' )
 parser.add_argument('--shapeRoot', default='../../createRealData/Shapes/real/', help='path to images' )
-parser.add_argument('--experiment', default=None, help='the path to store samples and models' )
+parser.add_argument('--experiment', default='../Model/Normal/check%d_normal_nw1.00_volume_sp1_an4_weightedSum', help='the path to store samples and models' )
 parser.add_argument('--testRoot', default=None, help='the path to store outputs')
 # The basic training setting
 parser.add_argument('--nepoch', type=int, default=10, help='the number of epochs for training' )
@@ -85,31 +85,32 @@ thetaJitters = np.array(thetaJitters ).astype(np.float32 ) / 180.0 * np.pi
 phiJitters = np.array(phiJitters ).astype(np.float32 ) / 180.0 * np.pi
 angleNum = thetas.shape[0]
 
+opt.experiment = opt.experiment % opt.camNum
 
-if opt.experiment is None:
-    opt.experiment = "check%d_normal_nw%.2f_rw%.2f" % (opt.camNum, nw, rw)
-    if opt.isNoErrMap:
-        opt.experiment += '_noerr'
-    if opt.isAddCostVolume:
-        if opt.poolingMode == 0:
-            opt.experiment +=  '_volume_sp%d_an%d_maxpool' % (opt.sampleNum, angleNum )
-        elif opt.poolingMode == 1:
-            opt.experiment += '_volume_sp%d_an%d_avgpool' % (opt.sampleNum, angleNum )
-        elif opt.poolingMode == 2:
-            opt.experiment += '_volume_sp%d_an%d_weigtedSum' % (opt.sampleNum, angleNum )
-        else:
-            print("Wrong: unrecognizable pooling mode.")
-            assert(False)
-    if opt.isAddVisualHull:
-        opt.experiment += '_vh_iw%.2f' % iw
+# if opt.experiment is None:
+#     opt.experiment = "../Model/Normal/check%d_normal_nw%.2f_rw%.2f" % (opt.camNum, nw, rw)
+#     if opt.isNoErrMap:
+#         opt.experiment += '_noerr'
+#     if opt.isAddCostVolume:
+#         if opt.poolingMode == 0:
+#             opt.experiment +=  '_volume_sp%d_an%d_maxpool' % (opt.sampleNum, angleNum )
+#         elif opt.poolingMode == 1:
+#             opt.experiment += '_volume_sp%d_an%d_avgpool' % (opt.sampleNum, angleNum )
+#         elif opt.poolingMode == 2:
+#             opt.experiment += '_volume_sp%d_an%d_weigtedSum' % (opt.sampleNum, angleNum )
+#         else:
+#             print("Wrong: unrecognizable pooling mode.")
+#             assert(False)
+#     if opt.isAddVisualHull:
+#         opt.experiment += '_vh_iw%.2f' % iw
 
 if not osp.isdir(opt.experiment ):
     print('Warning: the model %s does not exist' % opt.experiment )
     assert(False )
-opt.testRoot = opt.experiment.replace('check', 'test')
+opt.testRoot = opt.experiment.replace('check', 'test').replace('Model/', '')
 
 ####################
-opt.testRoot = 'temp_countTime'
+# opt.testRoot = 'temp_countTime'
 ####################
 
 os.system('mkdir {0}'.format( opt.testRoot ) )
