@@ -19,6 +19,8 @@ We provide the reconstructed and the ground truth scanned meshes for direct eval
 Coming Soon.
 
 ## Process Your Own Captured Data
+Please see [createRealData](https://github.com/yuyingyeh/TransparentShapeRealData/tree/master/createRealData) folder.
+
 Requirements: 
 - Python packages: OpenCV (tested on v3.4.2), pillow (tested on v7.2.0), scikit-image (tested on v0.16.2), trimesh (tested on v3.7.14)
 - Enable `xvfb-run`. 
