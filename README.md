@@ -10,7 +10,7 @@ We have pre-processed real transparent shape and image data used in our paper. [
 * ImagesReal/real/
   * The rendered images, two-bounce normal and the final reconstructed meshes of the 5-12 view reconstruction. 
 * Envmaps/real/
-  * The environment maps we created using the [pipeline](https://github.com/yuyingyeh/TransparentShapeRealData/blob/master/README.md#process-your-own-captured-data) below.
+  * The environment maps we created using the [createRealData pipeline](https://github.com/yuyingyeh/TransparentShapeRealData/tree/master/createRealData).
   
 ### Reconstructed and Ground Truth Scanned Meshes for Direct Evaluation
 We provide the reconstructed and the ground truth scanned meshes for direct evaluation. Please use these aligned reconstruced and ground truth mesh pairs to perform baseline comparisons. [[Download]](http://cseweb.ucsd.edu/~viscomp/projects/CVPR20Transparent/dataset/RealMesh.zip) (191MB)
